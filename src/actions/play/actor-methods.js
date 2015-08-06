@@ -25,6 +25,19 @@ module.exports = {
     },
 
     /*
+        Seek through tween
+
+        @param [number]: Progress as expressed from 0 - 1
+    */
+    seek: function (progress) {
+        this.elapsed = this.duration * progress;
+
+        if (!this.isActive) {
+            this.process.fire();
+        }
+    },
+
+    /*
         Check for next steps and perform, stop if not
     */
     next: function () {
