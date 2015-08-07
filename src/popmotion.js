@@ -8,23 +8,35 @@ var select = require('./actor/select'),
     valueTypeManager = require('./value-types/manager'),
     calc = require('./inc/calc'),
 
-    Actor = require('./actor/Actor'),
-    ActorCollection = require('./actor/ActorCollection'),
-    Input = require('./input/Input'),
-    Process = require('./process/Process'),
-    Easing = require('./actions/play/Easing'),
-
     Popmotion = {
 
-        Actor: Actor,
+        Actor: require('./actor/Actor'),
 
-        ActorCollection: ActorCollection,
+        ActorCollection: require('./actor/ActorCollection'),
 
-        Input: Input,
+        Role: require('./role/Role'),
 
-        Process: Process,
+        ///// Actions
 
-        Easing: Easing,
+        Action: require('./actions/generic/Action'),
+
+        Tween: require('./actions/play/Tween'),
+
+        Listen: require('./actions/track/Listen'),
+
+        Simulate: require('./actions/run/Simulate'),
+
+        ///// Modifiers
+
+        Input: require('./input/Input'),
+
+        Easing: require('./actions/play/Easing'),
+
+        Physics: require('./actions/run/Physics'),
+
+        ///// Process
+
+        Process: require('./process/Process'),
 
         select: function (items) {
             return select(items);
