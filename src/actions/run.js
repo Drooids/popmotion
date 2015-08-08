@@ -3,8 +3,7 @@
 */
 "use strict";
 
-var calc = require('../inc/calc'),
-    simulate = require('./run/simulate.js');
+var calc = require('../inc/calc');
 
 module.exports = {
 

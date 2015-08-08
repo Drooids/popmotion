@@ -2,7 +2,6 @@
 
 var select = require('./actor/select'),
     actionManager = require('./actions/manager'),
-    presetManager = require('./actor/preset-manager'),
     routeManager = require('./routes/manager'),
     simulationManager = require('./actions/run/simulation-manager'),
     valueTypeManager = require('./value-types/manager'),
@@ -14,17 +13,17 @@ var select = require('./actor/select'),
 
         ActorCollection: require('./actor/ActorCollection'),
 
-        Role: require('./role/Role'),
+        Role: require('./roles/Role'),
 
         ///// Actions
 
-        Action: require('./actions/generic/Action'),
+        Action: require('./actions/generic/Action.es6'),
 
-        Tween: require('./actions/play/Tween'),
+        Tween: require('./actions/play/Tween.es6'),
 
-        Listen: require('./actions/track/Listen'),
+        Track: require('./actions/track/Track.es6'),
 
-        Simulate: require('./actions/run/Simulate'),
+        Simulate: require('./actions/run/Simulate.es6'),
 
         ///// Modifiers
 
@@ -44,11 +43,6 @@ var select = require('./actor/select'),
 
         addAction: function () {
             actionManager.extend.apply(actionManager, arguments);
-            return this;
-        },
-
-        addPreset: function () {
-            presetManager.extend.apply(presetManager, arguments);
             return this;
         },
 

@@ -1,32 +1,10 @@
 "use strict";
 
-var presetManager = require('../../actor/preset-manager'),
-    utils = require('../../inc/utils'),
+var utils = require('../../inc/utils');
 
-    parsePlaylist = function () {
-        var args = [].slice.call(arguments),
-            playlist = args[0].split(' '),
-            playlistLength = playlist.length,
-            props = presetManager.getDefined(playlist[0]),
-            i = 1;
-
-        // If we've got multiple playlists, loop through and add each to the queue
-        if (playlistLength > 1) {
-            for (; i < playlistLength; i++) {
-                args.shift();
-                args.unshift(playlist[i]);
-                this.queue.add.apply(this.queue, args);
-            }
-        }
-
-        return props;
-    };
-
-module.exports = function () {
+module.exports = function (props) {
     var args = [].slice.call(arguments),
         numArgs = args.length,
-        // If first argument is a string, get base object from presets
-        props = utils.isString(args[0]) ? parsePlaylist.apply(this, args) : args[0],
         i = 1;
 
     // Loop through arguments
