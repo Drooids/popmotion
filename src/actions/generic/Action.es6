@@ -15,7 +15,7 @@ class Action {
     }
 
     extend(props, defaultProp) {
-        return new Action(props, defaultProp).set(props, defaultProp);
+        return new Action(this, defaultProp).set(props, defaultProp);
     }
 
     set(props, defaultProp = DEFAULT_PROP) {
@@ -45,6 +45,8 @@ class Action {
                 currentValues[key] = existingValue ? utils.merge(existingValue, newValue) : newValue;
             }
         }
+
+        return this;
     }
 
 }

@@ -9,6 +9,7 @@ class Simulate extends Action {
     */
     constructor(props) {
         super(props);
+        this.action = 'simulate';
     }
 
     extend(props) {

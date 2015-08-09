@@ -11,6 +11,7 @@ class Track extends Action {
     */
     constructor(props) {
         super(props, DEFAULT_PROP);
+        this.action = 'track';
     }
 
     extend(props) {
